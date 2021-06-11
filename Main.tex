@@ -1,0 +1,97 @@
+\documentclass[english, a4paper, 12pt, twoside]{insea} 
+
+% based on the NHH master template thesis template made by Endre Bjørndal
+
+\date{Juin 2021}
+\title{INSEA Template}
+\author{Abdessabour \and Moutik}
+\supervisor{1st Supervisor's Name\and 2nd}
+
+\graphicspath{{Images/}{../Images/}}
+\setbib{References}
+
+
+% ----- Document starts here ----- 
+\begin{document}
+
+\def\biblio{} % resets the biblio command, if not here a new reference list will be produced after every chapter
+
+\maketitle
+\restoregeometry % restores the margins after frontpage
+%\nocite{*} % uncomment if you want all sources to be printed in the reference list, including the ones which are not cited in the text 
+
+\pagenumbering{gobble} % suppress page numbering
+\thispagestyle{plain} % suppress header
+\clearpage\mbox{}\clearpage % add blank page
+
+\pagenumbering{roman} % starting roman page numbering
+\newpage
+    \subfile{Chapters/Acknowledgements}
+
+\newpage
+\section*{Abstract}
+    \subfile{Chapters/Abstract}
+
+\newpage
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+
+\pagenumbering{arabic} % Starting arabic page numbering
+\setcounter{page}{1} % sets pagecounter to 1
+
+
+\section*{Introduction} % section/chapter name
+    \markboth{Introduction}{Introduction}
+    \addcontentsline{toc}{section}{Introduction}
+    \subfile{Chapters/01Introduction} % including the subfile for the chapter
+\clearpage % clears the page after the chapter is finished
+
+\section{Background}
+    \subfile{Chapters/02Background}
+\clearpage
+
+\section{Data}
+    \subfile{Chapters/03Data}
+\clearpage
+
+\section{Methodology}
+    \subfile{Chapters/04Methodology}
+\clearpage
+  
+\section{Analysis}
+    \subfile{Chapters/05Analysis}
+\clearpage
+
+\section{Discussion}
+    \subfile{Chapters/06Discussion}
+\clearpage
+
+\section{Conclusion}
+    \subfile{Chapters/07Conclusion}
+\clearpage
+
+\newpage
+\renewcommand\refname{Réferences} % name for the reference list
+{\setstretch{1.0} % linespacing for the references
+\addcontentsline{toc}{section}{\refname} % to change the name of the references in the TOC
+\bibliography{References.bib} % adds the references to the document
+}
+
+\newpage
+\renewcommand{\appendixpagename}{Annexe} % Heading of appendix
+\renewcommand{\appendixtocname}{Annexe} % name of appendix in TOC
+\appendixpage 
+\addappheadtotoc
+
+\begin{appendices}
+    \subfile{Chapters/Appendix}
+\end{appendices}
+
+% TIPS AND TRICKS - REMOVE WHEN YOU DON'T NEED IT ANYMORE
+\newpage
+\section{Tips and tricks to get you started}
+    \subfile{Chapters/Tips}
+
+\end{document}
